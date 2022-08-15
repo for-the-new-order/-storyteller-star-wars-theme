@@ -18,11 +18,11 @@ jobs:
       #     fetch-depth: 0
 
       - name: Get version
-          id: version
-          uses: notiz-dev/github-action-json-property@release
-          with: 
-              path: 'module.json'
-              prop_path: 'version'
+        id: version
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: 'module.json'
+          prop_path: 'version'
 
       - run: echo ${{ steps.version.outputs.prop }}
 

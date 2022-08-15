@@ -1,0 +1,39 @@
+{
+    "name": "storyteller-star-wars-edition",
+    "title": "Storyteller Star Wars Edition",
+    "description": "Adds a Star Wars-like Storyteller theme.",
+    "version": "v1.0.0-alpha.1",
+    "templateVersion": 2,
+    "minimumCoreVersion": "9",
+    "compatibleCoreVersion": "9",
+    "authors": [
+        {
+            "name": "Carl-Hugo Marcotte"
+        }
+    ],
+    "styles": ["css/star-wars.css"],
+    "esmodules": ["./main.js"],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "socket": true,
+    "packs": [],
+    "url": "https://github.com/for-the-new-order/storyteller-star-wars-theme",
+    "manifest": "https://raw.githubusercontent.com/for-the-new-order/storyteller-star-wars-theme/main/module.json",
+    "relationships": {
+        "requires": [
+            {
+                "id": "storyteller",
+                "type": "module",
+                "manifest": "https://raw.githubusercontent.com/Xbozon/storyteller/main/module.json",
+                "compatibility": {
+                    "verified": "0.4.1"
+                }
+            }
+        ]
+    }
+}

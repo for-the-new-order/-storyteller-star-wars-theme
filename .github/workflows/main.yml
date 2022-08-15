@@ -55,7 +55,9 @@ jobs:
           prerelease: true
           tag_name: v${{ steps.nbgv.outputs.NpmPackageVersion }}
           files: |
-            **/*.*
+            module.json
+            README.md
+            screenshot.png
 
       - run: |
           echo 'upload_url: ${{ steps.gh-release.outputs.upload_url }}'

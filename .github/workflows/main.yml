@@ -43,7 +43,7 @@ jobs:
         with:
           file: module.json
           field: download
-          value: https://github.com/for-the-new-order/storyteller-star-wars-theme/releases/download/${{ steps.nbgv.outputs.NpmPackageVersion }}/module.json
+          value: https://github.com/for-the-new-order/storyteller-star-wars-theme/releases/download/v${{ steps.nbgv.outputs.NpmPackageVersion }}/module.json
 
       # - uses: actions/create-release@v1
       #   env:

@@ -14,21 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      #   with:
-      #     fetch-depth: 0
 
-      - name: Get version
+      - name: Get version from module.json
         id: version
         uses: notiz-dev/github-action-json-property@release
         with:
           path: 'module.json'
           prop_path: 'version'
 
-      - run: echo ${{ steps.version.outputs.prop }}
-
-      - name: Release
+      - name: Create the GitHub release
         uses: softprops/action-gh-release@v1
         with:
-          prerelease: contains(steps.version.outputs.prop, '-')
-          draft: true
           tag_name: v${{ steps.version.outputs.prop }}

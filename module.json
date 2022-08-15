@@ -24,6 +24,7 @@
     "packs": [],
     "url": "https://github.com/for-the-new-order/storyteller-star-wars-theme",
     "manifest": "https://raw.githubusercontent.com/for-the-new-order/storyteller-star-wars-theme/main/module.json",
+    "download": "https://github.com/for-the-new-order/storyteller-star-wars-theme/archive/refs/tags/v1.0.0-alpha.1.zip",
     "relationships": {
         "requires": [
             {

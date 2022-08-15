@@ -29,6 +29,7 @@ jobs:
 
       - run: |
           echo 'NpmPackageVersion: ${{ steps.nbgv.outputs.NpmPackageVersion }}'
+          echo 'module.json: https://github.com/for-the-new-order/storyteller-star-wars-theme/releases/download/${{ steps.nbgv.outputs.NpmPackageVersion }}/module.json'
 
       - name: Update module.json version
         uses: jossef/action-set-json-field@v2
@@ -36,6 +37,13 @@ jobs:
           file: module.json
           field: version
           value: ${{ steps.nbgv.outputs.NpmPackageVersion }}
+
+      - name: Update module.json download link
+        uses: jossef/action-set-json-field@v2
+        with:
+          file: module.json
+          field: download
+          value: https://github.com/for-the-new-order/storyteller-star-wars-theme/releases/download/${{ steps.nbgv.outputs.NpmPackageVersion }}/module.json
 
       # - uses: actions/create-release@v1
       #   env:
@@ -58,6 +66,3 @@ jobs:
             module.json
             README.md
             screenshot.png
-
-      - run: |
-          echo 'upload_url: ${{ steps.gh-release.outputs.upload_url }}'

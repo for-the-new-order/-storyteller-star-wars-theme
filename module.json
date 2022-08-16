@@ -2,14 +2,20 @@
     "name": "storyteller-star-wars-theme",
     "title": "Storyteller Star Wars Theme",
     "description": "Adds a Star Wars datapad theme to the Foundry VTT Storyteller plugin.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "download": "https://github.com/for-the-new-order/storyteller-star-wars-theme/archive/refs/tags/v1.0.0.zip",
     "templateVersion": 2,
     "minimumCoreVersion": "9",
     "compatibleCoreVersion": "9",
+    "v10-compatibility": {
+        "minimum": 9,
+        "verified": 9
+    },
     "authors": [
         {
-            "name": "Carl-Hugo Marcotte"
+            "name": "Carl-Hugo Marcotte",
+            "url": "https://www.carl-hugo.ca/",
+            "discord": "Ogulrok#7770"
         }
     ],
     "styles": ["css/star-wars.css"],
@@ -27,7 +33,8 @@
     "manifest": "https://raw.githubusercontent.com/for-the-new-order/storyteller-star-wars-theme/main/module.json",
     "readme": "https://raw.githubusercontent.com/for-the-new-order/storyteller-star-wars-theme/main/README.md",
     "license": "https://raw.githubusercontent.com/for-the-new-order/storyteller-star-wars-theme/main/LICENSE",
-    "relationships": {
+    "v10-relationships": {
+        "systems": [],
         "requires": [
             {
                 "id": "storyteller",
@@ -38,5 +45,13 @@
                 }
             }
         ]
-    }
+    },
+    "dependencies": [
+        {
+            "id": "storyteller",
+            "type": "module",
+            "manifest": "https://raw.githubusercontent.com/Xbozon/storyteller/main/module.json",
+            "version": "0.4.1"
+        }
+    ]
 }

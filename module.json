@@ -3,7 +3,7 @@
     "name": "storyteller-star-wars-theme",
     "title": "Storyteller Star Wars Theme",
     "description": "Adds a Star Wars datapad theme to the Foundry VTT Storyteller plugin.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "download": "https://github.com/for-the-new-order/storyteller-star-wars-theme/archive/refs/tags/v1.0.3.zip",
     "templateVersion": 2,
     "minimumCoreVersion": "9",

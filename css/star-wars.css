@@ -36,3 +36,8 @@
     mask-image: none;
     background-color: inherit;
 }
+
+.story-sheet.starwars .page-inner .settings label,
+.story-sheet.starwars .page-inner .settings input {
+    color: var(--color-text-light-primary);
+}

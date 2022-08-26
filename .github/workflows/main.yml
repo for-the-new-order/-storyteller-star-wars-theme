@@ -33,7 +33,7 @@ jobs:
         run: |
           previous="${{ steps.previoustag.outputs.tag }}"
           current="v${{ steps.version.outputs.prop }}"
-          shouldRelease=$[$previous != $current]
+          shouldRelease="$[$previous != $current]"
           echo "::set-output name=previous::$previous"
           echo "::set-output name=current::$current"
           echo "::set-output name=shouldRelease::$shouldRelease"
@@ -45,6 +45,7 @@ jobs:
           echo "Should release? ${{ steps.versions.outputs.shouldRelease }}"
 
       - run: zip -r ./module.zip main.js module.json LICENSE css/ lang/
+        if: ${{ steps.versions.outputs.shouldRelease }}
 
       - name: Update module release download url
         uses: jossef/action-set-json-field@v2

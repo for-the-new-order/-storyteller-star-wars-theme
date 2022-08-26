@@ -33,21 +33,17 @@ jobs:
         run: |
           previous="${{ steps.previoustag.outputs.tag }}"
           current="v${{ steps.version.outputs.prop }}"
-          should_release="$[$previous != $current]"
           echo "::set-output name=previous::$previous"
           echo "::set-output name=current::$current"
-          echo "::set-output name=should_release::$should_release"
-
-          echo $[$previous != $current]
 
       - name: Output values
         run: |
           echo "Previous: ${{ steps.versions.outputs.previous }}"
           echo "Current: ${{ steps.versions.outputs.current }}"
-          echo "Should release? ${{ steps.versions.outputs.should_release }}"
+          echo "Should release? ${{ steps.versions.outputs.previous != steps.versions.outputs.current }}"
 
       - run: zip -r ./module.zip main.js module.json LICENSE css/ lang/
-        if: ${{ steps.versions.outputs.should_release }}
+        if: ${{ steps.versions.outputs.previous != steps.versions.outputs.current }}
 
       - name: Update module release download url
         uses: jossef/action-set-json-field@v2
@@ -55,7 +51,7 @@ jobs:
           file: module.json
           field: download
           value: https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.prop }}/module.zip
-        if: ${{ steps.versions.outputs.should_release }}
+        if: ${{ steps.versions.outputs.previous != steps.versions.outputs.current }}
 
       - name: Create the GitHub release
         uses: softprops/action-gh-release@v1
@@ -64,4 +60,4 @@ jobs:
           files: |
             module.zip
             module.json
-        if: ${{ steps.versions.outputs.should_release }}
+        if: ${{ steps.versions.outputs.previous != steps.versions.outputs.current }}

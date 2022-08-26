@@ -31,6 +31,7 @@ jobs:
       - run: |
           echo "Previous: ${{ steps.previoustag.outputs.tag }}"
           echo "Current: ${{ steps.version.outputs.prop }}"
+          echo "Should update? ${{ steps.previoustag.outputs.tag != steps.version.outputs.prop }}"
 
       - run: zip -r ./module.zip main.js module.json LICENSE css/ lang/
 

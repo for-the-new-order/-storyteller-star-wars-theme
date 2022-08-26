@@ -3,8 +3,8 @@ name: Release Foundry VTT Module
 on:
   workflow_dispatch:
 
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
 
   # pull_request:
   #   branches: [main]
@@ -14,6 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: 'WyriHaximus/github-action-get-previous-tag@v1'
 
       - name: Get version from module.json
         id: version
@@ -22,7 +28,12 @@ jobs:
           path: 'module.json'
           prop_path: 'version'
 
+      - run: |
+        echo "Previous: ${{ steps.previoustag.outputs.tag }}"
+        echo "Current: ${{ steps.version.outputs.prop }}"
+
       - name: Create the GitHub release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ steps.version.outputs.prop }}
+        if: ${{ steps.previoustag.outputs.tag != steps.version.outputs.prop }}

@@ -33,9 +33,10 @@ jobs:
         run: |
           previous="${{ steps.previoustag.outputs.tag }}"
           current="v${{ steps.version.outputs.prop }}"
+          shouldRelease=$[$previous != $current]
           echo "::set-output name=previous::$previous"
           echo "::set-output name=current::$current"
-          echo "::set-output name=shouldRelease::$[$previous != $current]"
+          echo "::set-output name=shouldRelease::$shouldRelease"
 
       - name: Output values
         run: |

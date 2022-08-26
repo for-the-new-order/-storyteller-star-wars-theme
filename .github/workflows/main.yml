@@ -31,9 +31,11 @@ jobs:
       - name: Set versions variables
         id: versions
         run: |
-          echo '::set-output name=previous::${{ steps.previoustag.outputs.tag }}'
-          echo '::set-output name=current::v${{ steps.version.outputs.prop }}'
-          echo '::set-output name=shouldRelease::${{ steps.previoustag.outputs.tag != steps.version.outputs.prop }}'
+          previous="${{ steps.previoustag.outputs.tag }}"
+          current="v${{ steps.version.outputs.prop }}"
+          echo "::set-output name=previous::$previous"
+          echo "::set-output name=current::$current"
+          echo "::set-output name=shouldRelease::$[$previous != $current]"
 
       - name: Output values
         run: |

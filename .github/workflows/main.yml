@@ -50,7 +50,7 @@ jobs:
         with:
           file: module.json
           field: download
-          value: https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.prop }}/module.zip
+          value: https://github.com/${{ github.repository }}/releases/download/v${{ steps.version.outputs.prop }}/module.zip
         if: ${{ steps.versions.outputs.previous != steps.versions.outputs.current }}
 
       - name: Create the GitHub release

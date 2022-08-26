@@ -6,6 +6,16 @@ Adds a Star Wars datapad theme to the Foundry VTT Storyteller plugin.
 
 ![Storyteller Star Wars theme for Foundry VTT screenshot](screenshot.png)
 
+## How to use it?
+
+1. Go to the Storyteller module settings and choose the Star Wars theme, like this:
+   ![Storyteller Star Wars theme for Foundry VTT settings screenshot](screenshot-settings.png)
+
+1. Then choose the Storyteller sheet:
+   ![Storyteller sheet](screenshot-sheet.png)
+
+1. Save sheet configuration
+
 ## Dependencies
 
 This module requires [Storyteller for Foundry VTT](https://github.com/Xbozon/storyteller).

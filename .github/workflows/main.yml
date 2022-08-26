@@ -32,8 +32,21 @@ jobs:
         echo "Previous: ${{ steps.previoustag.outputs.tag }}"
         echo "Current: ${{ steps.version.outputs.prop }}"
 
+      - run: zip -r ./module.zip main.js module.json LICENSE css/ lang/
+
+      - name: Update module release download url
+        uses: jossef/action-set-json-field@v2
+        with:
+          file: module.json
+          field: download
+          value: https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.prop }}/module.zip
+        if: ${{ steps.previoustag.outputs.tag != steps.version.outputs.prop }}
+
       - name: Create the GitHub release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ steps.version.outputs.prop }}
+          files: |
+            module.zip
+            module.json
         if: ${{ steps.previoustag.outputs.tag != steps.version.outputs.prop }}

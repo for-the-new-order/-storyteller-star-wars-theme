@@ -16,6 +16,7 @@
     font-size: 16px;
     font-weight: 400;
     margin: 0;
+    line-height: 1.5em;
 }
 
 .story-sheet.starwars .page.left > .page-inner {

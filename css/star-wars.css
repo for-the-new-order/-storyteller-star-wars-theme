@@ -19,11 +19,13 @@
     line-height: 1.5em;
 }
 
-.story-sheet.starwars .page.left > .page-inner {
-    padding: 1% 7% 1% 7.5%;
+.story-sheet.starwars .page.even .text {
+    /* Left */
+    padding: 1em 3em;
 }
-.story-sheet.starwars .page.right > .page-inner {
-    padding: 0% 5.5% 0% 2%;
+.story-sheet.starwars .page.odd .text {
+    /* Right */
+    padding: 1em 3em 1em 1em;
 }
 .story-sheet.starwars .story-submit {
     border: 1px solid var(--color-border-light-primary);
@@ -32,13 +34,41 @@
     margin: auto;
 }
 
-.story-sheet.starwars .page-inner .image-container {
+.story-sheet.starwars .page-num.num-start label,
+.story-sheet.starwars .page-num.num-start input,
+.story-sheet.starwars .page-num.num-start button {
+    color: var(--color-text-light-primary);
+}
+.story-sheet.starwars .journal-page-content,
+.story-sheet.starwars .page-num.num-start h1,
+.story-sheet.starwars .page-num.num-start .pages-list > ol {
+    color: var(--color-text-light-primary);
+}
+
+.story-sheet.starwars .page-num.even,
+.story-sheet.starwars .page-num.odd {
+    background: none;
+}
+
+.story-sheet.starwars .journal-entry-page.image figure img {
+    max-width: 91%;
+    object-fit: cover;
     -webkit-mask-image: none;
     mask-image: none;
     background-color: inherit;
+    border-radius: 5px;
+}
+.story-sheet.starwars .page.even .image {
+    /* Left */
+    padding: 0;
+}
+.story-sheet.starwars .page.odd .image {
+    /* Right */
+    padding: 0;
+    /* padding: 1% 7.5% 1% 7%; */
 }
 
-.story-sheet.starwars .page-inner .settings label,
-.story-sheet.starwars .page-inner .settings input {
-    color: var(--color-text-light-primary);
+.story-sheet.starwars .pages-content,
+.story-sheet.starwars .page-num.num-start {
+    background-color: black;
 }

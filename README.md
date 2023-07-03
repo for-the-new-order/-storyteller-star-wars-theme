@@ -1,3 +1,12 @@
+# Currently broken
+
+```diff
+- This module is currently broken due to the new way Storyteller handles themes. 
+- I need to rewrite the module entirely for it to work, and I cannot commit to a timeline.
+```
+
+> When I do rebuild it, I'll make it into a standalone sheet with no dependency to ensure this situation does not reoccur.
+
 # Storyteller Star Wars theme for Foundry VTT
 
 Adds a Star Wars datapad theme to the Foundry VTT Storyteller plugin.
